@@ -27,7 +27,7 @@ f(x) = x^2<br>
 spiral function(see ``generate_data.py``)<br>
 ![spiral_pred](https://user-images.githubusercontent.com/33622626/51479685-a5c61480-1d97-11e9-849a-6afb1258ec84.png)
 
-## Build With
+## Built With
 * [PyTorch](https://pytorch.org/docs/stable/index.html) – a deep learning platform
 
 
