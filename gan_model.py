@@ -6,15 +6,12 @@ from torch.utils import data
 import torch.optim as optim
 import sys
 
-CRED = '\033[91m'
-CEND = '\033[0m'
-
 print_iter = 100
 batch_size = 64
 noise_size = 4
 epoches = 4000
 
-real_data_config = sys.argv[1] if len(sys.argv) == 2 else 'line'
+real_data_config = sys.argv[1] if len(sys.argv) == 2 else 'line_real_data.pkl'
 
 
 def get_fake_sample(batch_size_i):
@@ -79,15 +76,8 @@ class Discriminator(nn.Module):
         return self.out(x_i)
 
 
-try:
-    with open(real_data_config + '_real_data.pkl', 'rb') as data_file:
-        real_data = pickle.load(data_file)
-except FileNotFoundError:
-    print(CRED +
-          'Error: Real data file ' + real_data_config + '_real_data.pkl not found.'
-                                                        'try running generate_data.py again or using existing data.'
-          + CEND)
-    exit(1)
+with open(real_data_config, 'rb') as data_file:
+    real_data = pickle.load(data_file)
 
 dataset = torch.utils.data.TensorDataset(torch.from_numpy(real_data).float(),
                                          torch.ones(len(real_data)).float())
