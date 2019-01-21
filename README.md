@@ -1,4 +1,4 @@
-# GAN for generating points of leared function
+# GAN for generating points of learned function
 
 This project was made in order to practice GANs.
 
